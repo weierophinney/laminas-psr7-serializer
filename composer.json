@@ -1,0 +1,53 @@
+{
+    "name": "laminas/laminas-diactoros-serializer",
+    "description": "Provides various PSR-7 HTTP message de/serializers, using PSR-17 for serialization.",
+    "license": "BSD-3-Clause",
+    "keywords": [
+        "laminas",
+        "psr-7",
+        "psr-17"
+    ],
+    "support": {
+        "docs": "https://docs.laminas.dev/laminas-diactoros-serializer/",
+        "issues": "https://github.com/laminas/laminas-diactoros-serializer/issues",
+        "source": "https://github.com/laminas/laminas-diactoros-serializer",
+        "rss": "https://github.com/laminas/laminas-diactoros-serializer/releases.atom",
+        "forum": "https://discourse.laminas.dev/"
+    },
+    "require": {
+        "php": "^7.4",
+        "psr/http-factory-implementation": "*"
+    },
+    "require-dev": {
+        "laminas/laminas-diactoros": "^2.3",
+        "laminas/laminas-coding-standard": "~2.0.0",
+        "phpunit/phpunit": "^9.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Laminas\\Diactoros\\Serializer\\": "src//"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "LaminasTest\\Diactoros\\Serializer\\": "test/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        },
+        "laminas": {
+            "config-provider": "Laminas\\Diactoros\\Serializer\\ConfigProvider"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "scripts": {
+        "cs-check": "phpcs",
+        "cs-fix": "phpcbf",
+        "test": "phpunit --colors=always",
+        "test-coverage": "phpunit --colors=always --coverage-clover clover.xml"
+    }
+}
