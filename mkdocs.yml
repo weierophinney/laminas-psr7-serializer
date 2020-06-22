@@ -3,6 +3,8 @@ site_dir: docs/html
 nav:
     - Home: index.md
     - Introduction: v1/intro.md
+    - Usage: v1/usage.md
+    - Factories: v1/factories.md
 site_name: 'laminas-diactoros-serializer'
 site_description: 'Provides various PSR-7 HTTP message de/serializers, using PSR-17 for serialization.'
 repo_url: 'https://github.com/laminas/laminas-diactoros-serializer'
