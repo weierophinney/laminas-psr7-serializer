@@ -16,7 +16,7 @@ implementation you have installed.
 ## Serialize PSR-7 Requests to Arrays
 
 Sometimes you may want to keep the structure of an HTTP request when serializing
-it, to allow analyzing it more easily. For this purpose, we provide 
+it, to allow analyzing it more easily. For this purpose, we provide
 `Laminas\Diactoros\Serializer\Request\ArraySerializer`, which can both serialize
 to an array, as well as deserialize those arrays back to a PSR-7 request.
 
@@ -96,7 +96,7 @@ public function __construct(
 
 and it exposes the following methods:
 
-```
+```php
 public function fromString(string $message): Psr\Http\Message\RequestInterface
 public function fromStream(Psr\Http\Message\StreamInterface $stream): Psr\Http\Message\RequestInterface
 public function toString(Psr\Http\Message\RequestInterface $request): string
@@ -210,7 +210,7 @@ public function __construct(
 
 and it exposes the following methods:
 
-```
+```php
 public function fromString(string $message): Psr\Http\Message\ResponseInterface
 public function fromStream(Psr\Http\Message\StreamInterface $stream): Psr\Http\Message\ResponseInterface
 public function toString(Psr\Http\Message\ResponseInterface $response): string
