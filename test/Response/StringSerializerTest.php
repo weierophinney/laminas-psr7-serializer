@@ -2,8 +2,6 @@
 
 /**
  * @see       https://github.com/laminas/laminas-diactoros-serializer for the canonical source repository
- * @copyright https://github.com/laminas/laminas-diactoros-serializer/blob/master/COPYRIGHT.md
- * @license   https://github.com/laminas/laminas-diactoros-serializer/blob/master/LICENSE.md New BSD License
  */
 
 declare(strict_types=1);
@@ -15,8 +13,8 @@ use Laminas\Diactoros\Response;
 use Laminas\Diactoros\ResponseFactory;
 use Laminas\Diactoros\Serializer\Response\StringSerializer;
 use Laminas\Diactoros\StreamFactory;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
-use Prophecy\Prophecy\ObjectProphecy;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamInterface;
 use UnexpectedValueException;
@@ -224,7 +222,7 @@ class StringSerializerTest extends TestCase
 
     public function testFromStreamThrowsExceptionWhenStreamIsNotReadable(): void
     {
-        /** @var StreamInterface|ObjectProphecy $stream */
+        /** @var StreamInterface&MockObject $stream */
         $stream = $this->createMock(StreamInterface::class);
         $stream
             ->expects($this->once())
@@ -238,7 +236,7 @@ class StringSerializerTest extends TestCase
 
     public function testFromStreamThrowsExceptionWhenStreamIsNotSeekable(): void
     {
-        /** @var StreamInterface|ObjectProphecy $stream */
+        /** @var StreamInterface&MockObject $stream */
         $stream = $this->createMock(StreamInterface::class);
         $stream
             ->expects($this->once())

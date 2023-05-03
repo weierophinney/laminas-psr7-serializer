@@ -2,8 +2,6 @@
 
 /**
  * @see       https://github.com/laminas/laminas-diactoros-serializer for the canonical source repository
- * @copyright https://github.com/laminas/laminas-diactoros-serializer/blob/master/COPYRIGHT.md
- * @license   https://github.com/laminas/laminas-diactoros-serializer/blob/master/LICENSE.md New BSD License
  */
 
 declare(strict_types=1);
@@ -34,6 +32,9 @@ final class RelativeStream implements StreamInterface
         $this->offset          = (int) $offset;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function __toString(): string
     {
         if ($this->isSeekable()) {
@@ -42,39 +43,57 @@ final class RelativeStream implements StreamInterface
         return $this->getContents();
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function close(): void
     {
         $this->decoratedStream->close();
     }
 
-    // Disabling rules to avoid issues when inheriting signatures.
-    // phpcs:disable WebimpressCodingStandard.Functions.Param.MissingSpecification, WebimpressCodingStandard.Functions.ReturnType.ReturnValue
-
+    /**
+     * {@inheritdoc}
+     */
     public function detach()
     {
         return $this->decoratedStream->detach();
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getSize(): int
     {
         return $this->decoratedStream->getSize() - $this->offset;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function tell(): int
     {
         return $this->decoratedStream->tell() - $this->offset;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function eof(): bool
     {
         return $this->decoratedStream->eof();
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function isSeekable(): bool
     {
         return $this->decoratedStream->isSeekable();
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function seek($offset, $whence = SEEK_SET): void
     {
         if ($whence === SEEK_SET) {
@@ -84,16 +103,25 @@ final class RelativeStream implements StreamInterface
         $this->decoratedStream->seek($offset, $whence);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function rewind(): void
     {
         $this->seek(0);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function isWritable(): bool
     {
         return $this->decoratedStream->isWritable();
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function write($string): int
     {
         if ($this->tell() < 0) {
@@ -102,11 +130,17 @@ final class RelativeStream implements StreamInterface
         return $this->decoratedStream->write($string);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function isReadable(): bool
     {
         return $this->decoratedStream->isReadable();
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function read($length): string
     {
         if ($this->tell() < 0) {
@@ -115,6 +149,9 @@ final class RelativeStream implements StreamInterface
         return $this->decoratedStream->read($length);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getContents(): string
     {
         if ($this->tell() < 0) {
@@ -123,10 +160,11 @@ final class RelativeStream implements StreamInterface
         return $this->decoratedStream->getContents();
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getMetadata($key = null)
     {
         return $this->decoratedStream->getMetadata($key);
     }
-
-    // phpcs:enable
 }

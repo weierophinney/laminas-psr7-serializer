@@ -1,24 +1,18 @@
 # Usage
 
-This package provides serialization classes to convert
-[PSR-7 (HTTP Message)](https://www.php-fig.org/psr/psr-7/) request and response instances to
-and from arrays and strings, exposing the following classes:
+This package provides serialization classes to convert [PSR-7 (HTTP Message)](https://www.php-fig.org/psr/psr-7/) request and response instances to and from arrays and strings, exposing the following classes:
 
 - `Laminas\Diactoros\Serializer\Request\ArraySerializer`
 - `Laminas\Diactoros\Serializer\Request\StringSerializer`
 - `Laminas\Diactoros\Serializer\Response\ArraySerializer`
 - `Laminas\Diactoros\Serializer\Response\StringSerializer`
 
-Each uses relevant factories from [PSR-17 (HTTP Message Factories)](https://www.php-fig.org/psr/psr-17/)
-to deserialize to the relevant PSR-7 instances, based on the PSR-7
-implementation you have installed.
+Each uses relevant factories from [PSR-17 (HTTP Message Factories)](https://www.php-fig.org/psr/psr-17/) to deserialize to the relevant PSR-7 instances, based on the PSR-7 implementation you have installed.
 
 ## Serialize PSR-7 Requests to Arrays
 
-Sometimes you may want to keep the structure of an HTTP request when serializing
-it, to allow analyzing it more easily. For this purpose, we provide 
-`Laminas\Diactoros\Serializer\Request\ArraySerializer`, which can both serialize
-to an array, as well as deserialize those arrays back to a PSR-7 request.
+Sometimes you may want to keep the structure of an HTTP request when serializing it, to allow analyzing it more easily.
+For this purpose, we provide `Laminas\Diactoros\Serializer\Request\ArraySerializer`, which can both serialize to an array, as well as deserialize those arrays back to a PSR-7 request.
 
 The array format it uses is as follows:
 
@@ -33,8 +27,7 @@ The array format it uses is as follows:
 ]
 ```
 
-The constructor for `Laminas\Diactoros\Serializer\Request\ArraySerializer`
-reads:
+The constructor for `Laminas\Diactoros\Serializer\Request\ArraySerializer` reads:
 
 ```php
 public function __construct(
@@ -80,11 +73,9 @@ assert($requestData == $serializer->toArray($request));
 
 ## Serialize PSR-7 Requests to Strings
 
-If you want to serialize your request to an actual string HTTP message, or
-parse an HTTP request into a PSR-7 instance, you can use
-`Laminas\Diactoros\Serializer\Request\StringSerializer`.
+If you want to serialize your request to an actual string HTTP message, or parse an HTTP request into a PSR-7 instance, you can use `Laminas\Diactoros\Serializer\Request\StringSerializer`.
 
-It's constructor reads:
+Its constructor reads:
 
 ```php
 public function __construct(
@@ -96,7 +87,7 @@ public function __construct(
 
 and it exposes the following methods:
 
-```
+```php
 public function fromString(string $message): Psr\Http\Message\RequestInterface
 public function fromStream(Psr\Http\Message\StreamInterface $stream): Psr\Http\Message\RequestInterface
 public function toString(Psr\Http\Message\RequestInterface $request): string
@@ -133,10 +124,7 @@ assert($message === $serializer->toString($request));
 
 ## Serialize PSR-7 Responses to Arrays
 
-Mirroring the functionality for [serializing requests to
-arrays](#serialize-psr-7-requests-to-arrays), we provide similar functionality
-for responses via the `Laminas\Diactoros\Serializer\Response\ArraySerializer`
-class.
+Mirroring the functionality for [serializing requests to arrays](#serialize-psr-7-requests-to-arrays), we provide similar functionality for responses via the `Laminas\Diactoros\Serializer\Response\ArraySerializer` class.
 
 The array format it uses is as follows:
 
@@ -150,8 +138,7 @@ The array format it uses is as follows:
 ]
 ```
 
-The constructor for `Laminas\Diactoros\Serializer\Response\ArraySerializer`
-reads:
+The constructor for `Laminas\Diactoros\Serializer\Response\ArraySerializer` reads:
 
 ```php
 public function __construct(
@@ -195,11 +182,9 @@ assert($responseData == $serializer->toArray($response));
 
 ## Serialize PSR-7 Responses to Strings
 
-If you want to serialize your response to an actual string HTTP message, or
-parse an HTTP response into a PSR-7 instance, you can use
-`Laminas\Diactoros\Serializer\Response\StringSerializer`.
+If you want to serialize your response to an actual string HTTP message, or parse an HTTP response into a PSR-7 instance, you can use `Laminas\Diactoros\Serializer\Response\StringSerializer`.
 
-It's constructor reads:
+Its constructor reads:
 
 ```php
 public function __construct(
@@ -210,7 +195,7 @@ public function __construct(
 
 and it exposes the following methods:
 
-```
+```php
 public function fromString(string $message): Psr\Http\Message\ResponseInterface
 public function fromStream(Psr\Http\Message\StreamInterface $stream): Psr\Http\Message\ResponseInterface
 public function toString(Psr\Http\Message\ResponseInterface $response): string
