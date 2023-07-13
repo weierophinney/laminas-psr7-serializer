@@ -1,15 +1,11 @@
 <?php
 
-/**
- * @see       https://github.com/laminas/laminas-diactoros-serializer for the canonical source repository
- */
-
 declare(strict_types=1);
 
-namespace Laminas\Diactoros\Serializer\Response;
+namespace Laminas\Psr7\Serializer\Response;
 
-use Laminas\Diactoros\Exception;
-use Laminas\Diactoros\Serializer\AbstractSerializer;
+use Laminas\Psr7\Serializer\AbstractSerializer;
+use Laminas\Psr7\Serializer\Exception;
 use Psr\Http\Message\ResponseFactoryInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamFactoryInterface;

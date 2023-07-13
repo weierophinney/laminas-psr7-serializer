@@ -1,12 +1,8 @@
 <?php
 
-/**
- * @see       https://github.com/laminas/laminas-diactoros-serializer for the canonical source repository
- */
-
 declare(strict_types=1);
 
-namespace Laminas\Diactoros\Serializer\Request;
+namespace Laminas\Psr7\Serializer\Request;
 
 use Psr\Container\ContainerInterface;
 use Psr\Http\Message\RequestFactoryInterface;

@@ -1,15 +1,11 @@
 <?php
 
-/**
- * @see       https://github.com/laminas/laminas-diactoros-serializer for the canonical source repository
- */
-
 declare(strict_types=1);
 
-namespace LaminasTest\Diactoros\Serializer;
+namespace LaminasTest\Psr7\Serializer;
 
-use Laminas\Diactoros\Serializer\RelativeStream;
 use Laminas\Diactoros\Stream;
+use Laminas\Psr7\Serializer\RelativeStream;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use RuntimeException;
@@ -17,7 +13,7 @@ use RuntimeException;
 use const SEEK_SET;
 
 /**
- * @covers \Laminas\Diactoros\Serializer\RelativeStream
+ * @covers \Laminas\Psr7\Serializer\RelativeStream
  */
 class RelativeStreamTest extends TestCase
 {

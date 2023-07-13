@@ -1,18 +1,14 @@
 <?php
 
-/**
- * @see       https://github.com/laminas/laminas-diactoros-serializer for the canonical source repository
- */
-
 declare(strict_types=1);
 
-namespace LaminasTest\Diactoros\Serializer\Response;
+namespace LaminasTest\Psr7\Serializer\Response;
 
 use InvalidArgumentException;
 use Laminas\Diactoros\Response;
 use Laminas\Diactoros\ResponseFactory;
-use Laminas\Diactoros\Serializer\Response\StringSerializer;
 use Laminas\Diactoros\StreamFactory;
+use Laminas\Psr7\Serializer\Response\StringSerializer;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseInterface;

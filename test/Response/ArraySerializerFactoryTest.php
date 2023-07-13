@@ -1,15 +1,11 @@
 <?php
 
-/**
- * @see       https://github.com/laminas/laminas-diactoros-serializer for the canonical source repository
- */
-
 declare(strict_types=1);
 
-namespace LaminasTest\Diactoros\Serializer\Response;
+namespace LaminasTest\Psr7\Serializer\Response;
 
-use Laminas\Diactoros\Serializer\Response\ArraySerializer;
-use Laminas\Diactoros\Serializer\Response\ArraySerializerFactory;
+use Laminas\Psr7\Serializer\Response\ArraySerializer;
+use Laminas\Psr7\Serializer\Response\ArraySerializerFactory;
 use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseFactoryInterface;

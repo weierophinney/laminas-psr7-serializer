@@ -1,12 +1,8 @@
 <?php
 
-/**
- * @see       https://github.com/laminas/laminas-diactoros-serializer for the canonical source repository
- */
-
 declare(strict_types=1);
 
-namespace Laminas\Diactoros\Serializer\Exception;
+namespace Laminas\Psr7\Serializer\Exception;
 
 use RuntimeException;
 use Throwable;

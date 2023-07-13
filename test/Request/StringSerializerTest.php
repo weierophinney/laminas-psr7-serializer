@@ -1,22 +1,18 @@
 <?php
 
-/**
- * @see       https://github.com/laminas/laminas-diactoros-serializer for the canonical source repository
- */
-
 declare(strict_types=1);
 
-namespace LaminasTest\Diactoros\Serializer\Request;
+namespace LaminasTest\Psr7\Serializer\Request;
 
 use InvalidArgumentException;
 use Laminas\Diactoros\Request;
 use Laminas\Diactoros\RequestFactory;
-use Laminas\Diactoros\Serializer\RelativeStream;
-use Laminas\Diactoros\Serializer\Request\StringSerializer;
 use Laminas\Diactoros\Stream;
 use Laminas\Diactoros\StreamFactory;
 use Laminas\Diactoros\Uri;
 use Laminas\Diactoros\UriFactory;
+use Laminas\Psr7\Serializer\RelativeStream;
+use Laminas\Psr7\Serializer\Request\StringSerializer;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\RequestInterface;

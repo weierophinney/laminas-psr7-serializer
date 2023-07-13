@@ -1,5 +1,5 @@
 {
-    "name": "laminas/laminas-diactoros-serializer",
+    "name": "laminas/laminas-psr7-serializer",
     "description": "Provides various PSR-7 HTTP message de/serializers, using PSR-17 for serialization.",
     "license": "BSD-3-Clause",
     "keywords": [
@@ -8,10 +8,10 @@
         "psr-17"
     ],
     "support": {
-        "docs": "https://docs.laminas.dev/laminas-diactoros-serializer/",
-        "issues": "https://github.com/laminas/laminas-diactoros-serializer/issues",
-        "source": "https://github.com/laminas/laminas-diactoros-serializer",
-        "rss": "https://github.com/laminas/laminas-diactoros-serializer/releases.atom",
+        "docs": "https://docs.laminas.dev/laminas-psr7-serializer/",
+        "issues": "https://github.com/laminas/laminas-psr7-serializer/issues",
+        "source": "https://github.com/laminas/laminas-psr7-serializer",
+        "rss": "https://github.com/laminas/laminas-psr7-serializer/releases.atom",
         "forum": "https://discourse.laminas.dev/"
     },
     "require": {
@@ -26,17 +26,17 @@
     },
     "autoload": {
         "psr-4": {
-            "Laminas\\Diactoros\\Serializer\\": "src//"
+            "Laminas\\Psr7\\Serializer\\": "src//"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "LaminasTest\\Diactoros\\Serializer\\": "test/"
+            "LaminasTest\\Psr7\\Serializer\\": "test/"
         }
     },
     "extra": {
         "laminas": {
-            "config-provider": "Laminas\\Diactoros\\Serializer\\ConfigProvider"
+            "config-provider": "Laminas\\Psr7\\Serializer\\ConfigProvider"
         }
     },
     "config": {

@@ -1,16 +1,12 @@
 <?php
 
-/**
- * @see       https://github.com/laminas/laminas-diactoros-serializer for the canonical source repository
- */
-
 declare(strict_types=1);
 
-namespace LaminasTest\Diactoros\Serializer;
+namespace LaminasTest\Psr7\Serializer;
 
-use Laminas\Diactoros\Serializer\ConfigProvider;
-use Laminas\Diactoros\Serializer\Request;
-use Laminas\Diactoros\Serializer\Response;
+use Laminas\Psr7\Serializer\ConfigProvider;
+use Laminas\Psr7\Serializer\Request;
+use Laminas\Psr7\Serializer\Response;
 use PHPUnit\Framework\TestCase;
 
 class ConfigProviderTest extends TestCase
