@@ -77,6 +77,7 @@ final class StringSerializer extends AbstractStringSerializer
 
         ['headers' => $headers, 'body' => $body] = $this->splitStream($stream);
 
+        /** @var RequestInterface $request */
         $request = $this->requestFactory->createRequest($method, $uri)
             ->withProtocolVersion($version)
             ->withRequestTarget($requestTarget)

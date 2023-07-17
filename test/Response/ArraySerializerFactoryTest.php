@@ -22,14 +22,10 @@ class ArraySerializerFactoryTest extends TestCase
         $container
             ->expects($this->exactly(2))
             ->method('get')
-            ->withConsecutive(
-                [$this->equalTo(ResponseFactoryInterface::class)],
-                [$this->equalTo(StreamFactoryInterface::class)]
-            )
-            ->will($this->returnValueMap([
-                [ResponseFactoryInterface::class, $responseFactory],
-                [StreamFactoryInterface::class, $streamFactory],
-            ]));
+            ->willReturnCallback(fn (string $serviceName): object => match ($serviceName) {
+                ResponseFactoryInterface::class => $responseFactory,
+                StreamFactoryInterface::class => $streamFactory,
+            });
 
         $factory  = new ArraySerializerFactory();
         $instance = $factory($container);

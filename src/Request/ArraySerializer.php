@@ -62,6 +62,7 @@ final class ArraySerializer extends AbstractSerializer
 
             $body->write($this->getValueFromKey($serializedRequest, 'body'));
 
+            /** @var RequestInterface $request */
             $request = $this->requestFactory->createRequest($method, $uri)
                 ->withProtocolVersion($protocolVersion)
                 ->withRequestTarget($requestTarget)

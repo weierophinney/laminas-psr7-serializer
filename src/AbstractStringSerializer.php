@@ -51,8 +51,10 @@ abstract class AbstractStringSerializer extends AbstractSerializer
                 throw Exception\DeserializationException::forUnexpectedCarriageReturn();
             }
 
+            // $crFound is false at this point
+
             // LF in isolation
-            if (! $crFound && $char === self::LF) {
+            if ($char === self::LF) {
                 throw Exception\DeserializationException::forUnexpectedLineFeed();
             }
 

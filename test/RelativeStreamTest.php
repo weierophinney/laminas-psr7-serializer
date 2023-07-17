@@ -44,10 +44,10 @@ class RelativeStreamTest extends TestCase
     {
         /** @var Stream&MockObject $decorated */
         $decorated = $this->createMock(Stream::class);
-        $decorated->expects($this->once())->method('detach')->willReturn(250);
+        $decorated->expects($this->once())->method('detach')->willReturn(null);
         $stream = new RelativeStream($decorated, 100);
         $ret    = $stream->detach();
-        $this->assertSame(250, $ret);
+        $this->assertNull($ret);
     }
 
     public function testGetSize(): void

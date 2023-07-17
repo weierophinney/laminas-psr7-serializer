@@ -60,6 +60,7 @@ final class StringSerializer extends AbstractStringSerializer
 
         ['headers' => $headers, 'body' => $body] = $this->splitStream($stream);
 
+        /** @var ResponseInterface $response */
         $response = $this->responseFactory->createResponse((int) $status, $reasonPhrase)
             ->withProtocolVersion($version)
             ->withBody($body);

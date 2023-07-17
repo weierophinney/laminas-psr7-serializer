@@ -24,16 +24,11 @@ class StringSerializerFactoryTest extends TestCase
         $container
             ->expects($this->exactly(3))
             ->method('get')
-            ->withConsecutive(
-                [$this->equalTo(RequestFactoryInterface::class)],
-                [$this->equalTo(UriFactoryInterface::class)],
-                [$this->equalTo(StreamFactoryInterface::class)]
-            )
-            ->will($this->returnValueMap([
-                [RequestFactoryInterface::class, $requestFactory],
-                [UriFactoryInterface::class, $uriFactory],
-                [StreamFactoryInterface::class, $streamFactory],
-            ]));
+            ->willReturnCallback(fn (string $serviceName) => match ($serviceName) {
+                RequestFactoryInterface::class  => $requestFactory,
+                StreamFactoryInterface::class   => $streamFactory,
+                UriFactoryInterface::class      => $uriFactory,
+            });
 
         $factory  = new StringSerializerFactory();
         $instance = $factory($container);

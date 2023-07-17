@@ -61,6 +61,7 @@ final class ArraySerializer extends AbstractSerializer
             $protocolVersion = $this->getValueFromKey($serializedResponse, 'protocol_version');
             $reasonPhrase    = $this->getValueFromKey($serializedResponse, 'reason_phrase');
 
+            /** @var ResponseInterface $response */
             $response = $this->responseFactory->createResponse((int) $statusCode, $reasonPhrase)
                 ->withProtocolVersion($protocolVersion)
                 ->withBody($body);
@@ -95,7 +96,7 @@ final class ArraySerializer extends AbstractSerializer
 
     /**
      * @return mixed
-     * @throws UnexpectedValueException
+     * @throws Exception\DeserializationException
      */
     private function getValueFromKey(array $data, string $key, ?string $message = null)
     {
