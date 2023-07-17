@@ -1,15 +1,11 @@
 <?php
 
-/**
- * @see       https://github.com/laminas/laminas-diactoros-serializer for the canonical source repository
- */
-
 declare(strict_types=1);
 
-namespace Laminas\Diactoros\Serializer\Response;
+namespace Laminas\Psr7\Serializer\Response;
 
-use Laminas\Diactoros\Exception;
-use Laminas\Diactoros\Serializer\AbstractSerializer;
+use Laminas\Psr7\Serializer\AbstractSerializer;
+use Laminas\Psr7\Serializer\Exception;
 use Psr\Http\Message\ResponseFactoryInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamFactoryInterface;
@@ -65,6 +61,7 @@ final class ArraySerializer extends AbstractSerializer
             $protocolVersion = $this->getValueFromKey($serializedResponse, 'protocol_version');
             $reasonPhrase    = $this->getValueFromKey($serializedResponse, 'reason_phrase');
 
+            /** @var ResponseInterface $response */
             $response = $this->responseFactory->createResponse((int) $statusCode, $reasonPhrase)
                 ->withProtocolVersion($protocolVersion)
                 ->withBody($body);
@@ -99,7 +96,7 @@ final class ArraySerializer extends AbstractSerializer
 
     /**
      * @return mixed
-     * @throws UnexpectedValueException
+     * @throws Exception\DeserializationException
      */
     private function getValueFromKey(array $data, string $key, ?string $message = null)
     {

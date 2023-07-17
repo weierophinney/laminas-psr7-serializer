@@ -1,5 +1,5 @@
 {
-    "name": "laminas/laminas-diactoros-serializer",
+    "name": "laminas/laminas-psr7-serializer",
     "description": "Provides various PSR-7 HTTP message de/serializers, using PSR-17 for serialization.",
     "license": "BSD-3-Clause",
     "keywords": [
@@ -8,41 +8,47 @@
         "psr-17"
     ],
     "support": {
-        "docs": "https://docs.laminas.dev/laminas-diactoros-serializer/",
-        "issues": "https://github.com/laminas/laminas-diactoros-serializer/issues",
-        "source": "https://github.com/laminas/laminas-diactoros-serializer",
-        "rss": "https://github.com/laminas/laminas-diactoros-serializer/releases.atom",
+        "docs": "https://docs.laminas.dev/laminas-psr7-serializer/",
+        "issues": "https://github.com/laminas/laminas-psr7-serializer/issues",
+        "source": "https://github.com/laminas/laminas-psr7-serializer",
+        "rss": "https://github.com/laminas/laminas-psr7-serializer/releases.atom",
         "forum": "https://discourse.laminas.dev/"
     },
     "require": {
         "php": "~8.0.0 || ~8.1.0 || ~8.2.0",
-        "psr/http-factory-implementation": "^1.0 || ^2.0"
+        "psr/http-factory-implementation": "^1.0 || ^2.0",
+        "psr/http-message-implementation": "^1.1 || ^2.0"
     },
     "require-dev": {
         "laminas/laminas-coding-standard": "~2.5.0",
-        "laminas/laminas-diactoros": "^2.18.1",
+        "laminas/laminas-diactoros": "^2.25.2 || ^3.0",
         "phpunit/phpunit": "^9.5.28",
-        "psr/container": "^1.0 || ^2.0"
+        "psalm/plugin-phpunit": "^0.18.4",
+        "psr/container": "^1.0 || ^2.0",
+        "vimeo/psalm": "^5.9"
     },
     "autoload": {
         "psr-4": {
-            "Laminas\\Diactoros\\Serializer\\": "src//"
+            "Laminas\\Psr7\\Serializer\\": "src//"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "LaminasTest\\Diactoros\\Serializer\\": "test/"
+            "LaminasTest\\Psr7\\Serializer\\": "test/"
         }
     },
     "extra": {
         "laminas": {
-            "config-provider": "Laminas\\Diactoros\\Serializer\\ConfigProvider"
+            "config-provider": "Laminas\\Psr7\\Serializer\\ConfigProvider"
         }
     },
     "config": {
         "sort-packages": true,
         "allow-plugins": {
             "dealerdirect/phpcodesniffer-composer-installer": true
+        },
+        "platform": {
+            "php": "8.0.99"
         }
     },
     "scripts": {

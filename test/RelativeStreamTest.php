@@ -1,15 +1,11 @@
 <?php
 
-/**
- * @see       https://github.com/laminas/laminas-diactoros-serializer for the canonical source repository
- */
-
 declare(strict_types=1);
 
-namespace LaminasTest\Diactoros\Serializer;
+namespace LaminasTest\Psr7\Serializer;
 
-use Laminas\Diactoros\Serializer\RelativeStream;
 use Laminas\Diactoros\Stream;
+use Laminas\Psr7\Serializer\RelativeStream;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use RuntimeException;
@@ -17,11 +13,11 @@ use RuntimeException;
 use const SEEK_SET;
 
 /**
- * @covers \Laminas\Diactoros\Serializer\RelativeStream
+ * @covers \Laminas\Psr7\Serializer\RelativeStream
  */
 class RelativeStreamTest extends TestCase
 {
-    public function testToString()
+    public function testToString(): void
     {
         /** @var Stream&MockObject $decorated */
         $decorated = $this->createMock(Stream::class);
@@ -35,7 +31,7 @@ class RelativeStreamTest extends TestCase
         $this->assertSame('foobarbaz', $ret);
     }
 
-    public function testClose()
+    public function testClose(): void
     {
         /** @var Stream&MockObject $decorated */
         $decorated = $this->createMock(Stream::class);
@@ -44,17 +40,17 @@ class RelativeStreamTest extends TestCase
         $stream->close();
     }
 
-    public function testDetach()
+    public function testDetach(): void
     {
         /** @var Stream&MockObject $decorated */
         $decorated = $this->createMock(Stream::class);
-        $decorated->expects($this->once())->method('detach')->willReturn(250);
+        $decorated->expects($this->once())->method('detach')->willReturn(null);
         $stream = new RelativeStream($decorated, 100);
         $ret    = $stream->detach();
-        $this->assertSame(250, $ret);
+        $this->assertNull($ret);
     }
 
-    public function testGetSize()
+    public function testGetSize(): void
     {
         /** @var Stream&MockObject $decorated */
         $decorated = $this->createMock(Stream::class);
@@ -64,7 +60,7 @@ class RelativeStreamTest extends TestCase
         $this->assertSame(150, $ret);
     }
 
-    public function testTell()
+    public function testTell(): void
     {
         /** @var Stream&MockObject $decorated */
         $decorated = $this->createMock(Stream::class);
@@ -74,7 +70,7 @@ class RelativeStreamTest extends TestCase
         $this->assertSame(88, $ret);
     }
 
-    public function testIsSeekable()
+    public function testIsSeekable(): void
     {
         /** @var Stream&MockObject $decorated */
         $decorated = $this->createMock(Stream::class);
@@ -84,7 +80,7 @@ class RelativeStreamTest extends TestCase
         $this->assertSame(true, $ret);
     }
 
-    public function testIsWritable()
+    public function testIsWritable(): void
     {
         /** @var Stream&MockObject $decorated */
         $decorated = $this->createMock(Stream::class);
@@ -94,7 +90,7 @@ class RelativeStreamTest extends TestCase
         $this->assertSame(true, $ret);
     }
 
-    public function testIsReadable()
+    public function testIsReadable(): void
     {
         /** @var Stream&MockObject $decorated */
         $decorated = $this->createMock(Stream::class);
@@ -104,7 +100,7 @@ class RelativeStreamTest extends TestCase
         $this->assertSame(false, $ret);
     }
 
-    public function testSeek()
+    public function testSeek(): void
     {
         /** @var Stream&MockObject $decorated */
         $decorated = $this->createMock(Stream::class);
@@ -113,7 +109,7 @@ class RelativeStreamTest extends TestCase
         $this->assertNull($stream->seek(26));
     }
 
-    public function testRewind()
+    public function testRewind(): void
     {
         /** @var Stream&MockObject $decorated */
         $decorated = $this->createMock(Stream::class);
@@ -122,7 +118,7 @@ class RelativeStreamTest extends TestCase
         $this->assertNull($stream->rewind());
     }
 
-    public function testWrite()
+    public function testWrite(): void
     {
         /** @var Stream&MockObject $decorated */
         $decorated = $this->createMock(Stream::class);
@@ -133,7 +129,7 @@ class RelativeStreamTest extends TestCase
         $this->assertSame(6, $ret);
     }
 
-    public function testRead()
+    public function testRead(): void
     {
         /** @var Stream&MockObject $decorated */
         $decorated = $this->createMock(Stream::class);
@@ -144,7 +140,7 @@ class RelativeStreamTest extends TestCase
         $this->assertSame("foo", $ret);
     }
 
-    public function testGetContents()
+    public function testGetContents(): void
     {
         /** @var Stream&MockObject $decorated */
         $decorated = $this->createMock(Stream::class);
@@ -155,7 +151,7 @@ class RelativeStreamTest extends TestCase
         $this->assertSame("foo", $ret);
     }
 
-    public function testGetMetadata()
+    public function testGetMetadata(): void
     {
         /** @var Stream&MockObject $decorated */
         $decorated = $this->createMock(Stream::class);
@@ -165,7 +161,7 @@ class RelativeStreamTest extends TestCase
         $this->assertSame("foo", $ret);
     }
 
-    public function testWriteRaisesExceptionWhenPointerIsBehindOffset()
+    public function testWriteRaisesExceptionWhenPointerIsBehindOffset(): void
     {
         /** @var Stream&MockObject $decorated */
         $decorated = $this->createMock(Stream::class);
@@ -179,7 +175,7 @@ class RelativeStreamTest extends TestCase
         $stream->write("foobaz");
     }
 
-    public function testReadRaisesExceptionWhenPointerIsBehindOffset()
+    public function testReadRaisesExceptionWhenPointerIsBehindOffset(): void
     {
         /** @var Stream&MockObject $decorated */
         $decorated = $this->createMock(Stream::class);
@@ -193,7 +189,7 @@ class RelativeStreamTest extends TestCase
         $stream->read(3);
     }
 
-    public function testGetContentsRaisesExceptionWhenPointerIsBehindOffset()
+    public function testGetContentsRaisesExceptionWhenPointerIsBehindOffset(): void
     {
         /** @var Stream&MockObject $decorated */
         $decorated = $this->createMock(Stream::class);
@@ -207,7 +203,7 @@ class RelativeStreamTest extends TestCase
         $stream->getContents();
     }
 
-    public function testCanReadContentFromNotSeekableResource()
+    public function testCanReadContentFromNotSeekableResource(): void
     {
         /** @var Stream&MockObject $decorated */
         $decorated = $this->createMock(Stream::class);

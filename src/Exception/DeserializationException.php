@@ -1,12 +1,8 @@
 <?php
 
-/**
- * @see       https://github.com/laminas/laminas-diactoros-serializer for the canonical source repository
- */
-
 declare(strict_types=1);
 
-namespace Laminas\Diactoros\Serializer\Exception;
+namespace Laminas\Psr7\Serializer\Exception;
 
 use Throwable;
 use UnexpectedValueException;
@@ -25,12 +21,12 @@ class DeserializationException extends UnexpectedValueException implements Excep
 
     public static function forRequestFromArray(Throwable $previous): self
     {
-        return new self('Cannot deserialize request', $previous->getCode(), $previous);
+        return new self('Cannot deserialize request', (int) $previous->getCode(), $previous);
     }
 
     public static function forResponseFromArray(Throwable $previous): self
     {
-        return new self('Cannot deserialize response', $previous->getCode(), $previous);
+        return new self('Cannot deserialize response', (int) $previous->getCode(), $previous);
     }
 
     public static function forUnexpectedCarriageReturn(): self

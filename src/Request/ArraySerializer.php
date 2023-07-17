@@ -1,15 +1,11 @@
 <?php
 
-/**
- * @see       https://github.com/laminas/laminas-diactoros-serializer for the canonical source repository
- */
-
 declare(strict_types=1);
 
-namespace Laminas\Diactoros\Serializer\Request;
+namespace Laminas\Psr7\Serializer\Request;
 
-use Laminas\Diactoros\Serializer\AbstractSerializer;
-use Laminas\Diactoros\Serializer\Exception;
+use Laminas\Psr7\Serializer\AbstractSerializer;
+use Laminas\Psr7\Serializer\Exception;
 use Psr\Http\Message\RequestFactoryInterface;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\StreamFactoryInterface;
@@ -66,6 +62,7 @@ final class ArraySerializer extends AbstractSerializer
 
             $body->write($this->getValueFromKey($serializedRequest, 'body'));
 
+            /** @var RequestInterface $request */
             $request = $this->requestFactory->createRequest($method, $uri)
                 ->withProtocolVersion($protocolVersion)
                 ->withRequestTarget($requestTarget)

@@ -1,15 +1,11 @@
 <?php
 
-/**
- * @see       https://github.com/laminas/laminas-diactoros-serializer for the canonical source repository
- */
-
 declare(strict_types=1);
 
-namespace LaminasTest\Diactoros\Serializer\Request;
+namespace LaminasTest\Psr7\Serializer\Request;
 
-use Laminas\Diactoros\Serializer\Request\ArraySerializer;
-use Laminas\Diactoros\Serializer\Request\ArraySerializerFactory;
+use Laminas\Psr7\Serializer\Request\ArraySerializer;
+use Laminas\Psr7\Serializer\Request\ArraySerializerFactory;
 use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Message\RequestFactoryInterface;
@@ -26,14 +22,10 @@ class ArraySerializerFactoryTest extends TestCase
         $container
             ->expects($this->exactly(2))
             ->method('get')
-            ->withConsecutive(
-                [$this->equalTo(RequestFactoryInterface::class)],
-                [$this->equalTo(StreamFactoryInterface::class)]
-            )
-            ->will($this->returnValueMap([
-                [RequestFactoryInterface::class, $requestFactory],
-                [StreamFactoryInterface::class, $streamFactory],
-            ]));
+            ->willReturnCallback(fn (string $serviceName): object => match ($serviceName) {
+                RequestFactoryInterface::class => $requestFactory,
+                StreamFactoryInterface::class => $streamFactory,
+            });
 
         $factory  = new ArraySerializerFactory();
         $instance = $factory($container);

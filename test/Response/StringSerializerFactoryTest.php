@@ -1,15 +1,11 @@
 <?php
 
-/**
- * @see       https://github.com/laminas/laminas-diactoros-serializer for the canonical source repository
- */
-
 declare(strict_types=1);
 
-namespace LaminasTest\Diactoros\Serializer\Response;
+namespace LaminasTest\Psr7\Serializer\Response;
 
-use Laminas\Diactoros\Serializer\Response\StringSerializer;
-use Laminas\Diactoros\Serializer\Response\StringSerializerFactory;
+use Laminas\Psr7\Serializer\Response\StringSerializer;
+use Laminas\Psr7\Serializer\Response\StringSerializerFactory;
 use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseFactoryInterface;
@@ -26,14 +22,10 @@ class StringSerializerFactoryTest extends TestCase
         $container
             ->expects($this->exactly(2))
             ->method('get')
-            ->withConsecutive(
-                [$this->equalTo(ResponseFactoryInterface::class)],
-                [$this->equalTo(StreamFactoryInterface::class)]
-            )
-            ->will($this->returnValueMap([
-                [ResponseFactoryInterface::class, $responseFactory],
-                [StreamFactoryInterface::class, $streamFactory],
-            ]));
+            ->willReturnCallback(fn (string $serviceName): object => match ($serviceName) {
+                ResponseFactoryInterface::class => $responseFactory,
+                StreamFactoryInterface::class => $streamFactory,
+            });
 
         $factory  = new StringSerializerFactory();
         $instance = $factory($container);

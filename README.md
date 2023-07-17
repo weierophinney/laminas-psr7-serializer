@@ -1,4 +1,4 @@
-# laminas-diactoros-serializer
+# laminas/laminas-psr7-serializer
 
 [![Build Status](https://github.com/weierophinney/laminas-diactoros-serializer/workflows/Continuous%20Integration/badge.svg)](https://github.com/weierophinney/laminas-diactoros-serializer/actions/workflows/continuous-integration.yml)
 
@@ -10,12 +10,13 @@ Run the following to install this library:
 
 <!-- 
 ```bash
-$ composer require laminas/laminas-diactoros-serializer
+$ composer require laminas/laminas-psr7-serializer
 ```
 -->
+
 ```bash
-$ composer config repositories.lds vcs https://github.com/weierophinney/laminas-diactoros-serializer.git
-$ composer require laminas/laminas-diactoros-serializer
+$ composer config repositories.lds vcs https://github.com/weierophinney/laminas-psr7-serializer.git
+$ composer require laminas/laminas-psr7-serializer
 ```
 
 <!-- 

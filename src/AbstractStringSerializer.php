@@ -1,12 +1,8 @@
 <?php
 
-/**
- * @see       https://github.com/laminas/laminas-diactoros-serializer for the canonical source repository
- */
-
 declare(strict_types=1);
 
-namespace Laminas\Diactoros\Serializer;
+namespace Laminas\Psr7\Serializer;
 
 use Psr\Http\Message\StreamInterface;
 
@@ -55,8 +51,10 @@ abstract class AbstractStringSerializer extends AbstractSerializer
                 throw Exception\DeserializationException::forUnexpectedCarriageReturn();
             }
 
+            // $crFound is false at this point
+
             // LF in isolation
-            if (! $crFound && $char === self::LF) {
+            if ($char === self::LF) {
                 throw Exception\DeserializationException::forUnexpectedLineFeed();
             }
 

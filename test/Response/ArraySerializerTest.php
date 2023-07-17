@@ -1,19 +1,15 @@
 <?php
 
-/**
- * @see       https://github.com/laminas/laminas-diactoros-serializer for the canonical source repository
- */
-
 declare(strict_types=1);
 
-namespace LaminasTest\Diactoros\Response;
+namespace LaminasTest\Psr7\Response;
 
 use Laminas\Diactoros\Response;
 use Laminas\Diactoros\ResponseFactory;
-use Laminas\Diactoros\Serializer\Response\ArraySerializer;
-use Laminas\Diactoros\Serializer\Response\StringSerializer;
 use Laminas\Diactoros\Stream;
 use Laminas\Diactoros\StreamFactory;
+use Laminas\Psr7\Serializer\Response\ArraySerializer;
+use Laminas\Psr7\Serializer\Response\StringSerializer;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseInterface;
 use UnexpectedValueException;
