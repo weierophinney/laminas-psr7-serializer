@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<files psalm-version="5.13.1@086b94371304750d1c673315321a55d15fc59015">
+  <file src="src/AbstractSerializer.php">
+    <MixedArgument>
+      <code>$value</code>
+    </MixedArgument>
+    <MixedArgumentTypeCoercion>
+      <code>$header</code>
+    </MixedArgumentTypeCoercion>
+    <MixedAssignment>
+      <code>$value</code>
+    </MixedAssignment>
+  </file>
+  <file src="src/AbstractStringSerializer.php">
+    <MixedArgument>
+      <code>$value</code>
+    </MixedArgument>
+    <MixedAssignment>
+      <code>$value</code>
+      <code>$values</code>
+    </MixedAssignment>
+  </file>
+  <file src="src/RelativeStream.php">
+    <PossiblyNullOperand>
+      <code><![CDATA[$this->decoratedStream->getSize()]]></code>
+    </PossiblyNullOperand>
+  </file>
+  <file src="src/Request/ArraySerializer.php">
+    <MixedArgument>
+      <code>$headers</code>
+      <code>$method</code>
+      <code>$protocolVersion</code>
+      <code>$requestTarget</code>
+      <code><![CDATA[$this->getValueFromKey($serializedRequest, 'body')]]></code>
+      <code>$uri</code>
+    </MixedArgument>
+    <MixedAssignment>
+      <code>$headers</code>
+      <code>$method</code>
+      <code>$protocolVersion</code>
+      <code>$requestTarget</code>
+      <code>$uri</code>
+    </MixedAssignment>
+  </file>
+  <file src="src/Request/ArraySerializerFactory.php">
+    <MixedArgument>
+      <code><![CDATA[$container->get(RequestFactoryInterface::class)]]></code>
+      <code><![CDATA[$container->get(StreamFactoryInterface::class)]]></code>
+    </MixedArgument>
+  </file>
+  <file src="src/Request/StringSerializer.php">
+    <MixedArgument>
+      <code>$body</code>
+      <code>$headers</code>
+      <code>$method</code>
+      <code>$requestTarget</code>
+      <code>$version</code>
+    </MixedArgument>
+  </file>
+  <file src="src/Request/StringSerializerFactory.php">
+    <MixedArgument>
+      <code><![CDATA[$container->get(RequestFactoryInterface::class)]]></code>
+      <code><![CDATA[$container->get(StreamFactoryInterface::class)]]></code>
+      <code><![CDATA[$container->get(UriFactoryInterface::class)]]></code>
+    </MixedArgument>
+  </file>
+  <file src="src/Response/ArraySerializer.php">
+    <MixedArgument>
+      <code>$headers</code>
+      <code>$protocolVersion</code>
+      <code>$reasonPhrase</code>
+      <code><![CDATA[$this->getValueFromKey($serializedResponse, 'body')]]></code>
+    </MixedArgument>
+    <MixedAssignment>
+      <code>$headers</code>
+      <code>$protocolVersion</code>
+      <code>$reasonPhrase</code>
+      <code>$statusCode</code>
+    </MixedAssignment>
+  </file>
+  <file src="src/Response/ArraySerializerFactory.php">
+    <MixedArgument>
+      <code><![CDATA[$container->get(ResponseFactoryInterface::class)]]></code>
+      <code><![CDATA[$container->get(StreamFactoryInterface::class)]]></code>
+    </MixedArgument>
+  </file>
+  <file src="src/Response/StringSerializer.php">
+    <MixedArgument>
+      <code>$body</code>
+      <code>$headers</code>
+      <code>$reasonPhrase</code>
+      <code>$version</code>
+    </MixedArgument>
+  </file>
+  <file src="src/Response/StringSerializerFactory.php">
+    <MixedArgument>
+      <code><![CDATA[$container->get(ResponseFactoryInterface::class)]]></code>
+      <code><![CDATA[$container->get(StreamFactoryInterface::class)]]></code>
+    </MixedArgument>
+  </file>
+  <file src="test/ConfigProviderTest.php">
+    <MixedArgument>
+      <code>$factories</code>
+      <code>$factories</code>
+      <code>$factories</code>
+      <code>$factories</code>
+    </MixedArgument>
+    <MixedAssignment>
+      <code>$factories</code>
+    </MixedAssignment>
+  </file>
+  <file src="test/Request/StringSerializerTest.php">
+    <MissingClosureReturnType>
+      <code>function () use ($payload) {</code>
+    </MissingClosureReturnType>
+    <MixedArrayOffset>
+      <code>$payload[$i++]</code>
+    </MixedArrayOffset>
+    <MixedAssignment>
+      <code>$i</code>
+    </MixedAssignment>
+    <MixedInferredReturnType>
+      <code>iterable</code>
+      <code>iterable</code>
+      <code>iterable</code>
+      <code>iterable</code>
+      <code>iterable</code>
+    </MixedInferredReturnType>
+    <MixedOperand>
+      <code>$i</code>
+    </MixedOperand>
+  </file>
+  <file src="test/Response/StringSerializerTest.php">
+    <MixedInferredReturnType>
+      <code>iterable</code>
+      <code>iterable</code>
+    </MixedInferredReturnType>
+  </file>
+</files>
