@@ -13,6 +13,7 @@ Run the following to install this library:
 $ composer require laminas/laminas-psr7-serializer
 ```
 -->
+
 ```bash
 $ composer config repositories.lds vcs https://github.com/weierophinney/laminas-psr7-serializer.git
 $ composer require laminas/laminas-psr7-serializer
